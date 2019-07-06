@@ -71,6 +71,8 @@ declare var message_util: any;
 declare var message_viewport: any;
 declare var muting: any;
 declare var muting_ui: any;
+declare var my_topics: any;
+declare var my_topics_list: any;
 declare var narrow: any;
 declare var narrow_state: any;
 declare var navigate: any;

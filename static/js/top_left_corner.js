@@ -77,12 +77,23 @@ exports.handle_narrow_activated = function (filter) {
     if (exports.should_expand_pm_list(filter)) {
         var op_pm = filter.operands('pm-with');
         pm_list.expand(op_pm);
+        console.log("expanded pm filter list???")
     } else {
         pm_list.close();
+        console.log("closed pm filter list???")
+    }
+    if (exports.should_expand_my_topics_list(filter)) {
+        var op_pm = filter.operands('pm-with');
+        my_topics_list.expand(op_pm);
+        console.log("expanded topic filter list???")
+    } else {
+        my_topics_list.close();
+        console.log("closed topic filter list???")
     }
 };
 
 exports.should_expand_pm_list = function (filter) {
+    console.dir(filter);
     var op_is = filter.operands('is');
 
     if (op_is.length >= 1 && _.contains(op_is, "private")) {
@@ -96,6 +107,28 @@ exports.should_expand_pm_list = function (filter) {
     }
 
     var emails_strings = op_pm[0];
+    var emails = emails_strings.split(',');
+
+    var has_valid_emails = people.is_valid_bulk_emails_for_compose(emails);
+
+    return has_valid_emails;
+};
+
+exports.should_expand_my_topics_list = function (filter) {
+    console.dir(filter);
+    var op_is = filter.operands('is');
+
+    if (op_is.length >= 1 && _.contains(op_is, "my-topics")) {
+        return true;
+    }
+
+    var op_topics = filter.operands('my-topics-with');
+
+    if (op_topics.length !== 1) {
+        return false;
+    }
+
+    var emails_strings = op_topics[0];
     var emails = emails_strings.split(',');
 
     var has_valid_emails = people.is_valid_bulk_emails_for_compose(emails);

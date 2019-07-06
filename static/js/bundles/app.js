@@ -56,6 +56,8 @@ import "../people.js";
 import "../user_groups.js";
 import "../unread.js";
 import "../topic_list.js";
+import "../my_topics.js";
+import "../my_topics_list.js";
 import "../pm_list.js";
 import "../pm_conversations.js";
 import "../recent_senders.js";

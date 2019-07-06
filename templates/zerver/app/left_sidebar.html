@@ -56,6 +56,20 @@
                 </a>
                 <span class="arrow starred-messages-sidebar-arrow"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
             </li>
+            <li class="top_left_my_topics top_left_row">
+                <a href="#narrow/is/my-topics">
+                    <span class="filter-icon">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </span>
+                    {#- squash whitespace -#}
+                    <span>{{ _('My Topics') }}</span>
+                    <span class="count">
+                        <span class="value"></span>
+                    </span>
+                </a>
+                <div id="my-topics-container" class="scrolling_list" data-simplebar>
+                </div>
+            </li>
         </ul>
         <div id="streams_list" class="zoom-out">
             <div id="streams_header" class="zoom-in-hide"><h4 class="sidebar-title" data-toggle="tooltip" title="{{ _('Filter streams') }}">{{ _('STREAMS') }}</h4>

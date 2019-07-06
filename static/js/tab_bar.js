@@ -81,6 +81,8 @@ function make_tab_data() {
 
         } else if (filter.has_operand("is", "starred")) {
             tabs.push(make_tab("Starred", hashed));
+        } else if (filter.has_operand("is", "my-topics")) {
+            tabs.push(make_tab("My Topics", hashed));
         } else if (filter.has_operator("near")) {
             tabs.push(make_tab("Near " + filter.operands("near")[0], hashed));
         } else if (filter.has_operator("id")) {
